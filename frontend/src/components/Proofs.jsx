@@ -11,8 +11,8 @@ const Proofs = () => {
     const fetchData = async () => {
       try {
         const [proofsRes, winnersRes] = await Promise.all([
-          fetch('http://127.0.0.1:8000/api/proofs'),
-          fetch('http://127.0.0.1:8000/api/recent-winners')
+          fetch('https://rank-backend-test.onrender.com/api/proofs'),
+          fetch('https://rank-backend-test.onrender.com/api/recent-winners')
         ]);
         
         const proofsData = await proofsRes.json();

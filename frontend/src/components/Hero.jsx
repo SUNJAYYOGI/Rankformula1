@@ -30,8 +30,8 @@ const Hero = ({ setActiveTab }) => {
   // 1. Backend se Match Data & Settings Fetch karna
   useEffect(() => {
     Promise.all([
-      fetch('http://127.0.0.1:8000/api/active-match').then(res => res.json()),
-      fetch('http://127.0.0.1:8000/api/site-settings').then(res => res.json())
+      fetch('https://rank-backend-test.onrender.com/api/active-match').then(res => res.json()),
+      fetch('https://rank-backend-test.onrender.com/api/site-settings').then(res => res.json())
     ])
     .then(([match, settings]) => {
       setMatchData(match);

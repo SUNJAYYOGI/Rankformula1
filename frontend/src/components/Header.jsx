@@ -6,7 +6,7 @@ const Header = ({ setActiveTab }) => {
 
   // Backend API fetch call
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/site-settings')
+    fetch('https://rank-backend-test.onrender.com/api/site-settings')
       .then(res => res.json())
       .then(data => {
         if (data && !data.detail) {

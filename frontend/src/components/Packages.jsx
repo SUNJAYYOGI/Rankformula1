@@ -32,9 +32,9 @@ const Packages = () => {
   useEffect(() => {
     // Teeno APIs ek sath fetch kar rahe hain
     Promise.all([
-      fetch('http://127.0.0.1:8000/api/packages').then(res => res.json()),
-      fetch('http://127.0.0.1:8000/api/payment-settings').then(res => res.json()),
-      fetch('http://127.0.0.1:8000/api/site-settings').then(res => res.json()) // NAYI API
+      fetch('https://rank-backend-test.onrender.com/api/packages').then(res => res.json()),
+      fetch('https://rank-backend-test.onrender.com/api/payment-settings').then(res => res.json()),
+      fetch('https://rank-backend-test.onrender.com/api/site-settings').then(res => res.json()) // NAYI API
     ])
     .then(([packagesData, paymentData, settingsData]) => {
       setPackagesData(packagesData);
@@ -73,7 +73,7 @@ const Packages = () => {
 
     // 2. Backend mein UTR aur Number save karo
     try {
-      await fetch('http://127.0.0.1:8000/api/save-lead', {
+      await fetch('https://rank-backend-test.onrender.com/api/save-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
