@@ -31,13 +31,13 @@ class MatchSchema(Schema):
     @staticmethod
     def resolve_bg_image_url(obj):
         if obj.bg_image:
-            return f"http://127.0.0.1:8000{obj.bg_image.url}"
+            return f"https://rank-backend-test.onrender.com{obj.bg_image.url}"
         return None
 
     @staticmethod
     def resolve_poster_image_url(obj):
         if obj.poster_image:
-            return f"http://127.0.0.1:8000{obj.poster_image.url}"
+            return f"https://rank-backend-test.onrender.com{obj.poster_image.url}"
         return None
 
 class PackageSchema(Schema):
@@ -75,7 +75,7 @@ class RecentWinnerSchema(Schema):
     @staticmethod
     def resolve_profile_pic_url(obj, context):
         if obj.profile_pic:
-            # context['request'] use karke pura URL banega jaise http://127.0.0.1:8000/media/winners/pic.jpg
+            # context['request'] use karke pura URL banega jaise https://rank-backend-test.onrender.com/media/winners/pic.jpg
             request = context['request']
             return request.build_absolute_uri(obj.profile_pic.url)
         # Agar photo nahi hai toh React fallback initial dikhayega
