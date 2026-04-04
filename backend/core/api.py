@@ -129,7 +129,7 @@ def get_site_settings(request):
     if not setting:
         # YAHAN THI GALTI: Humne daily_booking_count nahi diya tha default mein
         return {
-            "telegram_link": "https://t.me/yourchannel", 
+            "telegram_link": "http://t.me/rankformula1", 
             "whatsapp_number": "9461717755",
             "daily_booking_count": 1  # NAYA FIX
         }

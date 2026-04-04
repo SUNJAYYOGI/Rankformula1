@@ -93,7 +93,7 @@ class PaymentSetting(models.Model):
 # NAYA MODEL: PURI WEBSITE KI SETTINGS KE LIYE
 # ==========================================
 class SiteSetting(models.Model):
-    telegram_link = models.URLField(default="https://t.me/yourchannel", help_text="Apne Telegram Channel/Group ka link daalein")
+    telegram_link = models.URLField(default="http://t.me/rankformula1", help_text="Apne Telegram Channel/Group ka link daalein")
     whatsapp_number = models.CharField(max_length=15, default="9461717755", help_text="WhatsApp Number daalein (Bina +91 ke)")
     daily_booking_count = models.IntegerField(default=0, help_text="Kitne logo ne book kiya hai? (Fake booking alert ke liye)")
     is_active = models.BooleanField(default=True, help_text="Isko tick rakhein taaki website par update ho jaye")

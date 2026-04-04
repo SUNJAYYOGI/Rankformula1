@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='SiteSetting',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('telegram_link', models.URLField(default='https://t.me/yourchannel', help_text='Apne Telegram Channel/Group ka link daalein')),
+                ('telegram_link', models.URLField(default='http://t.me/rankformula1', help_text='Apne Telegram Channel/Group ka link daalein')),
                 ('whatsapp_number', models.CharField(default='9461717755', help_text='WhatsApp Number daalein (Bina +91 ke)', max_length=15)),
                 ('is_active', models.BooleanField(default=True, help_text='Isko tick rakhein taaki website par update ho jaye')),
             ],
