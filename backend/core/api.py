@@ -1,6 +1,6 @@
 from datetime import datetime
 from ninja import NinjaAPI, Schema
-from typing import List
+from typing import List, Optional
 from django.shortcuts import get_object_or_404
 
 # Saare models import kiye (dhyaan rakhna koi miss na ho)
@@ -24,14 +24,20 @@ class MatchSchema(Schema):
     match_time: datetime
     location: str
     
-    bg_image_url: str = None
-    poster_image_url: str = None
+    # FIX: Optional lagana zaroori hai
+    bg_image_url: Optional[str] = None
+    poster_image_url: Optional[str] = None
 
-    # DJANGO NINJA FIX: Sirf (obj) aayega, aur manual URL banayenge
     @staticmethod
     def resolve_bg_image_url(obj):
         if obj.bg_image:
             return f"https://rank-backend-test.onrender.com{obj.bg_image.url}"
+        return None
+
+    @staticmethod
+    def resolve_poster_image_url(obj):
+        if obj.poster_image:
+            return f"https://rank-backend-test.onrender.com{obj.poster_image.url}"
         return None
 
     @staticmethod
@@ -68,17 +74,15 @@ class RecentWinnerSchema(Schema):
     rank: int
     amount_won: str
     match_name: str
-    # NAYA FIELD: Image ka URL bhejne ke liye string field
-    profile_pic_url: str = None 
     
-    # Yeh resolver automatically full absolute URL bana dega image ka
+    # FIX: Yahan bhi Optional lagana hai
+    profile_pic_url: Optional[str] = None 
+    
     @staticmethod
     def resolve_profile_pic_url(obj, context):
         if obj.profile_pic:
-            # context['request'] use karke pura URL banega jaise https://rank-backend-test.onrender.com/media/winners/pic.jpg
             request = context['request']
             return request.build_absolute_uri(obj.profile_pic.url)
-        # Agar photo nahi hai toh React fallback initial dikhayega
         return None
     
 class SiteSettingSchema(Schema):
